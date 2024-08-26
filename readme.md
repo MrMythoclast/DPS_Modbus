@@ -5,6 +5,10 @@
 ![User Interface Screenshot](images/2.png)
 
 
+Es wird ein NuGet-Paket verwendet, das eventuell bereitgestellt werden muss: NModbus4
+zum 'installieren' einfach in der Package Manager Console: 
+
+Install-Package NModBus4 
 
 
 GER:
