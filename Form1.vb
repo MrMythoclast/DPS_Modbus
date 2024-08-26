@@ -2,24 +2,31 @@
 Imports Modbus.Device
 
 
-'register': 0x00,  # Register für Spannungseinstellungen
-'register': 0x01,  # Register für Stromstärke-Einstellungen
-'register': 0x02,  # Register für Ausgangsspannung
-'register': 0x03,  # Register für Ausgangsstrom
-'register': 0x04,  # Register für Ausgangsleistung (Watt)
-'register': 0x05,  # Register für Eingangsspannung
-'register': 0x06,  # Register für Tastensperre (Lock)
-'register': 0x07,  # Register für Schutzstatus
-'register': 0x08,  # Register für Konstantstrommodus
-'register': 0x09,  # Register für Ausgangszustand
-'register': 0x0a,  # Register für Helligkeitsstufe
-'register': 0x0b,  # Register für Modell des Geräts
-'register': 0x0c,  # Register für Gerätesoftware (Firmware)
-'register': 0x23,  # Register für Gruppenladegerät (Read-Only)
+'register': 0x00,  # Register für Spannungseinstellungen  # Register for voltage settings
+'register': 0x01,  # Register für Stromstärke-Einstellungen  # Register for current settings
+'register': 0x02,  # Register für Ausgangsspannung  # Register for output voltage
+'register': 0x03,  # Register für Ausgangsstrom  # Register for output current
+'register': 0x04,  # Register für Ausgangsleistung (Watt)  # Register for output power (Watt)
+'register': 0x05,  # Register für Eingangsspannung  # Register for input voltage
+'register': 0x06,  # Register für Tastensperre (Lock)  # Register for button lock
+'register': 0x07,  # Register für Schutzstatus  # Register for protection status
+'register': 0x08,  # Register für Konstantstrommodus  # Register for constant current mode
+'register': 0x09,  # Register für Ausgangszustand  # Register for output state
+'register': 0x0a,  # Register für Helligkeitsstufe  # Register for brightness level
+'register': 0x0b,  # Register für Modell des Geräts  # Register for device model
+'register': 0x0c,  # Register für Gerätesoftware (Firmware)  # Register for device software (firmware)
+'register': 0x23,  # Register für Gruppenladegerät (Read-Only)  # Register for group charger (Read-Only)
 
 
 
 Public Class Form1
+
+
+
+    Dim DpsPort As String = "COM5" ' You have to edit This Port to your needs before! 
+
+
+
     ' SerialPort1 wird als neues SerialPort-Objekt erstellt
     ' SerialPort1 is created as a new SerialPort object
     Private WithEvents SerialPort1 As New SerialPort
@@ -27,12 +34,10 @@ Public Class Form1
     ' modbusMaster is an instance of the Modbus RTU Master
     Private modbusMaster As IModbusSerialMaster
 
-    ' Form1_Load wird ausgeführt, wenn das Formular geladen wird
-    ' Form1_Load is executed when the form is loaded
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Konfiguration des seriellen Ports
         ' Configuring the serial port
-        SerialPort1.PortName = "COM5"  ' Ihr serieller Port / Your Serial Port
+        SerialPort1.PortName = DpsPort  ' Ihr serieller Port / Your Serial Port
         SerialPort1.BaudRate = 115200
         SerialPort1.Parity = IO.Ports.Parity.None
         SerialPort1.DataBits = 8
