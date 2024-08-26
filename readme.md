@@ -18,18 +18,21 @@ um die Treiber zu haben, der dann einen COM-Port bereitstellt.
 
 
 ENG:
-This project is a some working test implementation for MODBUS communication using VB.NET.
-I successfully established a connection to a power supply from RUIDEN (5015) 
-and was able to read and modify settings.
+I successfully attempted to connect to a RUIDEN (5015) power supply to remotely control it through my program.
+Other RUIDEN power supplies should also work, as long as they can be accessed via the COM port.
 
+I have installed a Bluetooth board on my DPS 5015 and set up the official app to obtain the drivers, 
+which then provides a COM port.
 
 
 
 ## Features
-- Voltage / Current Control
-- Feature 2
++ Voltage / Current Control
++ Displays all you need to know
 
-
+## Oopsies
+- control is slow even with high Baudrate
+- GUI Layout is ugly as hell
 
 ## Getting Started
 Just download and open the .sln with Visual Studio
